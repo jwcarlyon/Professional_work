@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import CourseDataService from '../service/CourseDataService';
 
-const INSTRUCTOR = 'in28minutes'
+const INSTRUCTOR = 'in28minutes';
 
 class Course extends Component {
     constructor(props) {
@@ -15,18 +15,14 @@ class Course extends Component {
 
         this.onSubmit = this.onSubmit.bind(this)
         this.validate = this.validate.bind(this)
-
     }
 
     componentDidMount() {
-
         console.log(this.state.id)
-
         // eslint-disable-next-line
         if (this.state.id == -1) {
             return
         }
-
         CourseDataService.retrieveCourse(INSTRUCTOR, this.state.id)
             .then(response => this.setState({
                 description: response.data.description
@@ -40,14 +36,11 @@ class Course extends Component {
         } else if (values.description.length < 5) {
             errors.description = 'Enter atleast 5 Characters in Description'
         }
-
         return errors
-
     }
 
     onSubmit(values) {
         let username = INSTRUCTOR
-
         let course = {
             id: this.state.id,
             description: values.description,
@@ -61,7 +54,6 @@ class Course extends Component {
             CourseDataService.updateCourse(username, this.state.id, course)
                 .then(() => this.props.history.push('/courses'))
         }
-
         console.log(values);
     }
 
@@ -78,26 +70,21 @@ class Course extends Component {
                         validateOnBlur={false}
                         validate={this.validate}
                         enableReinitialize={true}
-                    >
-                        {
-                            (props) => (
-                                <Form>
-                                    <ErrorMessage name="description" component="div"
-                                        className="alert alert-warning" />
-                                    <fieldset className="form-group">
-                                        <label>Id</label>
-                                        <Field className="form-control" type="text" name="id" disabled />
-                                    </fieldset>
-                                    <fieldset className="form-group">
-                                        <label>Description</label>
-                                        <Field className="form-control" type="text" name="description" />
-                                    </fieldset>
-                                    <button className="btn btn-success" type="submit">Save</button>
-                                </Form>
-                            )
-                        }
-                    </Formik>
-
+                    >{(props) => (
+                        <Form>
+                            <ErrorMessage name="description" component="div"
+                                className="alert alert-warning" />
+                            <fieldset className="form-group">
+                                <label>Id</label>
+                                <Field className="form-control" type="text" name="id" disabled />
+                            </fieldset>
+                            <fieldset className="form-group">
+                                <label>Description</label>
+                                <Field className="form-control" type="text" name="description" />
+                            </fieldset>
+                            <button className="btn btn-success" type="submit">Save</button>
+                        </Form>
+                    )}</Formik>
                 </div>
             </div>
         )
