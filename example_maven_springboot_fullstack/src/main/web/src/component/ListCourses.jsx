@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import CourseDataService from '../service/CourseDataService';
 
-const INSTRUCTOR = 'in28minutes'
+const INSTRUCTOR = 'in28minutes';
 
 class ListCourses extends Component {
     constructor(props) {
