@@ -1,7 +1,6 @@
 package com.example.example_maven_springboot_fullstack.greeting;
 
-import java.util.Arrays;
-
+import com.example.example_maven_springboot_fullstack.config.ApplicationContextUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -9,10 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.example.example_maven_springboot_fullstack.config.ApplicationContextUtilService;
-import com.example.example_maven_springboot_fullstack.greeting.GreeterService;
+import java.util.Arrays;
 
 @Controller
 public class SecureGreetingController
@@ -27,6 +24,14 @@ public class SecureGreetingController
     @Autowired
     @Qualifier("contextAware")
     private ApplicationContextUtilService contextUtilService;
+
+    @RequestMapping(path = "/secure-welcome")
+    public String helloWorld()
+    {
+        processContext();
+        String message = "<br><div style='text-align:center;'>" + "<h3>Secure " + greeterService.greet() + "</h3></div>";
+        return message;
+    }
 
     private void processContext()
     {
@@ -44,13 +49,5 @@ public class SecureGreetingController
         {
             System.out.println("web context Beans: " + Arrays.asList(webApplicationContext.getBeanDefinitionNames()));
         }
-    }
-
-    @RequestMapping(path = "/secure-welcome")
-    public ModelAndView helloWorld()
-    {
-        processContext();
-        String message = "<br><div style='text-align:center;'>" + "<h3>Secure " + greeterService.greet() + "</h3></div>";
-        return new ModelAndView("welcome", "message", message);
     }
 }
