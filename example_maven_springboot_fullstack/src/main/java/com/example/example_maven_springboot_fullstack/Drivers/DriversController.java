@@ -1,17 +1,39 @@
 package com.example.example_maven_springboot_fullstack.Drivers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping(path = "/drivers")
 public class DriversController
 {
+//    private Logger logger = new Logger();
+    private DriversService driversService;
+    public DriversController(DriversService driversService) {
+        this.driversService = driversService;
+    }
     @RequestMapping(path = "/welcome")
     public String helloWorld()
     {
         String message = "<h3>Hello F1 World!</h3>";
         return message;
+    }
+    @RequestMapping(path = "/refresh")
+    public String refreshDriversList()
+    {
+
+        driversService.refreshDriversRepo();
+        String message = "Drivers list successfully updated";
+        return message;
+    }
+    @RequestMapping(path = "/all-drivers")
+    public ResponseEntity<ArrayList<Driver>> getDriversList()
+    {
+        ArrayList<Driver> driverList = driversService.getDriversList();
+        return new ResponseEntity<>(driverList, HttpStatus.OK);
     }
 }

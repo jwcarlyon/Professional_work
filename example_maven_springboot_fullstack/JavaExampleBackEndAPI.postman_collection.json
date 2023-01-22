@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "f129c608-0781-4fd4-9970-96cb45507a48",
+		"name": "JavaExampleBackEndAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getHelloDriversWorld",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drivers/welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						"welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDriversRefresh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drivers/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDriversList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drivers/all-drivers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						"all-drivers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
