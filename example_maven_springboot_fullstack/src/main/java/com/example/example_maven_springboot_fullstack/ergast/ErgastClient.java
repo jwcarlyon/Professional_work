@@ -1,6 +1,6 @@
-package com.example.example_maven_springboot_fullstack.Ergast;
+package com.example.example_maven_springboot_fullstack.ergast;
 
-import com.example.example_maven_springboot_fullstack.Drivers.Driver;
+import com.example.example_maven_springboot_fullstack.drivers.Driver;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,9 +30,6 @@ public class ErgastClient {
         for(Driver car : cars) {
             System.out.println(car.getDriverId());
         }
-//        Gson gson = new GsonBuilder().create();
-//        Driver[] drivers = gson.fromJson(response.substring(response.indexOf('['), response.indexOf(']') + 1), Driver[].class);
-//        return gson.fromJson(response.substring(response.indexOf('['), response.indexOf(']') + 1), Driver[].class);
         return drivers;
     }
 }

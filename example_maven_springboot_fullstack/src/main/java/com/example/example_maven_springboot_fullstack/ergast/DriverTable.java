@@ -1,6 +1,6 @@
-package com.example.example_maven_springboot_fullstack.Ergast;
+package com.example.example_maven_springboot_fullstack.ergast;
 
-import com.example.example_maven_springboot_fullstack.Drivers.Driver;
+import com.example.example_maven_springboot_fullstack.drivers.Driver;
 import com.fasterxml.jackson.annotation.*;
 
 import java.util.HashMap;

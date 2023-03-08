@@ -1,4 +1,4 @@
-package com.example.example_maven_springboot_fullstack.Drivers;
+package com.example.example_maven_springboot_fullstack.drivers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

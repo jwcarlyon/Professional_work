@@ -1,4 +1,4 @@
-package com.example.example_maven_springboot_fullstack.Ergast;
+package com.example.example_maven_springboot_fullstack.ergast;
 
 import com.fasterxml.jackson.annotation.*;
 
