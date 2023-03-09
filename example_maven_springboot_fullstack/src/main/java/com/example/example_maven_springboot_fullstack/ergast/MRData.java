@@ -1,10 +1,18 @@
 package com.example.example_maven_springboot_fullstack.ergast;
 
 import com.fasterxml.jackson.annotation.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "xmlns", "series", "url", "limit", "offset", "total", "DriverTable" })
 public class MRData {
@@ -25,74 +33,6 @@ public class MRData {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("xmlns")
-    public String getXmlns() { return this.xmlns; }
-
-    @JsonProperty("xmlns")
-    public void setXmlns(String xmlns) {
-        this.xmlns = xmlns;
-    }
-
-    @JsonProperty("series")
-    public String getSeries() {
-        return series;
-    }
-
-    @JsonProperty("series")
-    public void setSeries(String series) {
-        this.series = series;
-    }
-    @JsonProperty("url")
-    public String getUrl() { return this.url; }
-
-    @JsonProperty("url")
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @JsonProperty("limit")
-    public Integer getLimit() {
-        return limit;
-    }
-
-    @JsonProperty("limit")
-    public void setLimit(Integer limit) {
-        this.limit = limit;
-    }
-
-    @JsonProperty("offset")
-    public Integer getOffset() {
-        return offset;
-    }
-
-    @JsonProperty("offset")
-    public void setOffset(Integer offset) {
-        this.offset = offset;
-    }
-
-    @JsonProperty("total")
-    public Integer getTotal() {
-        return total;
-    }
-
-    @JsonProperty("total")
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
-    @JsonProperty("DriverTable")
-    public DriverTable getDriverTable() {
-        return driverTable;
-    }
-
-    @JsonProperty("DriverTable")
-    public void setDriverTable(DriverTable driverTable) {
-        this.driverTable = driverTable;
-    }
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
