@@ -27,9 +27,13 @@ public class ErgastClient {
         DriverTable driverTable = mrData.getDriverTable();
         Driver[] drivers = driverTable.getDrivers();//        System.out.println("Received Ergast response : " + response);
         List<Driver> cars = List.of(driverTable.getDrivers());
-        for(Driver car : cars) {
+        for (Driver car : cars) {
             System.out.println(car.getDriverId());
         }
         return drivers;
+    }
+
+    public String getAllCoursesBySeason(String season) {
+        return "courses for season: " + season;
     }
 }
