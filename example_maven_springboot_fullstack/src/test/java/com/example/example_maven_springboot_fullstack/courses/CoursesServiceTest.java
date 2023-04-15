@@ -10,7 +10,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
@@ -25,12 +29,19 @@ class CoursesServiceTest {
     class getCourseList {
         @Test
         @DisplayName("When course list is requested by season, then that season's course list is returned")
-        void getCourseList() {
-            when(mockErgastClient.getAllCoursesBySeason("2022")).thenReturn("courses list for 2022");
+        void returnsCourseList() {
+            GpLapTime expectedGpLapTime = new GpLapTime();
+            expectedGpLapTime.setDriverId("testId");
+            expectedGpLapTime.setTime("testTime");
+            expectedGpLapTime.setMysql_id(0);
+            expectedGpLapTime.setPosition("testPosition");
+            GpLapTime[] expectedGpLapTimeArray = { expectedGpLapTime };
+            ArrayList<GpLapTime[]> expectedLapTimes = new ArrayList<>(Collections.singleton(expectedGpLapTimeArray));
+            when(mockErgastClient.getAllLapTimesFromGp("2022", "1")).thenReturn(expectedLapTimes);
 
-            String result = coursesService.getCourseList("2022");
+            String result = coursesService.getGpLapTimes("2022", "1");
 
-            assertEquals(result, "courses list for 2022");
+            assertTrue(expectedLapTimes.toString().equals(result));
         }
     }
 }

@@ -11,7 +11,7 @@ public class CoursesService {
         this.ergastClient = ergastClient;
     }
 
-    public String getCourseList(String season) {
-        return ergastClient.getAllCoursesBySeason(season);
+    public String getGpLapTimes(String season, String round) {
+        return ergastClient.getAllLapTimesFromGp(season, round).toString();
     }
 }

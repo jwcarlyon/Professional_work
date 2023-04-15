@@ -2,6 +2,7 @@ package com.example.example_maven_springboot_fullstack.drivers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,5 +36,11 @@ public class DriversController
     {
         ArrayList<Driver> driverList = driversService.getDriversList();
         return new ResponseEntity<>(driverList, HttpStatus.OK);
+    }
+    @RequestMapping(path = "/{name}")
+    public ResponseEntity<String> getDriverByName(@PathVariable String name)
+    {
+        String driver = driversService.getRapidDriver(name);
+        return new ResponseEntity<>(driver, HttpStatus.OK);
     }
 }

@@ -38,9 +38,9 @@ class CoursesControllerTest {
         @Test
         @DisplayName("When a season is requested, the course list for that season is returned")
         void ok() throws Exception {
-            when(mockCoursesService.getCourseList("2022")).thenReturn("courses list");
+            when(mockCoursesService.getGpLapTimes("2022", "1")).thenReturn("courses list");
 
-            mockMvc.perform(get("/courses/2022"))
+            mockMvc.perform(get("/courses/2022/1"))
                     .andExpect(status().isOk())
                     .andExpect(content().contentType(MediaType.TEXT_PLAIN + ";charset=ISO-8859-1"))
                     .andExpect(MockMvcResultMatchers.content().string("courses list"));

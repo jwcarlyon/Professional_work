@@ -16,8 +16,8 @@ public class CoursesController {
         this.coursesService = coursesService;
     }
 
-    @RequestMapping(path = "/{season}", method = RequestMethod.GET)
-    public ResponseEntity<String> getCoursesForSeason(@PathVariable String season) {
-        return new ResponseEntity<>(coursesService.getCourseList(season), HttpStatus.OK);
+    @RequestMapping(path = "/{season}/{round}", method = RequestMethod.GET)
+    public ResponseEntity<String> getCoursesForSeason(@PathVariable String season, @PathVariable String round) {
+        return new ResponseEntity<>(coursesService.getGpLapTimes(season, round), HttpStatus.OK);
     }
 }

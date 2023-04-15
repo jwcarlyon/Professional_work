@@ -1,6 +1,7 @@
 package com.example.example_maven_springboot_fullstack.drivers;
 
 import com.example.example_maven_springboot_fullstack.ergast.ErgastClient;
+import com.example.example_maven_springboot_fullstack.rapid.RapidClient;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -11,11 +12,13 @@ import java.util.List;
 public class DriversService
 {
     private ErgastClient ergastClient;
+    private RapidClient rapidClient;
     private DriverRepo driverRepo;
 
-    public DriversService(DriverRepo driverRepo, ErgastClient ergastClient) {
+    public DriversService(DriverRepo driverRepo, ErgastClient ergastClient, RapidClient rapidClient) {
         this.ergastClient = ergastClient;
         this.driverRepo = driverRepo;
+        this.rapidClient = rapidClient;
     }
     public ArrayList<Driver> getDriversList() {
 
@@ -38,5 +41,10 @@ public class DriversService
             System.out.println("Saving driver: " + driver.getGivenName());
             driverRepo.save(driver);
         }
+    }
+
+    public String getRapidDriver(String name) {
+        rapidClient.getDriverByName(name);
+        return "test";
     }
 }
