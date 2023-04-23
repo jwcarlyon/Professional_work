@@ -7,6 +7,11 @@ Update the comilation live, while I type the program.
 Provide a UI configuration option for the current optimization level and which compiler is being executed.`
 
 The program uses TKInter and Subprocess libraries. This does not work, it may  
-compile with an older version of python, but 3.6 sees some of the flags in the  
+compile with an older version of python, but 3.6.9 sees some of the flags in the  
 subprocess call as deprecated. The second commit will be my changes to get this  
 program to work
+
+The main issue was the subprocess run command was not directing the assembly code to  
+the stdout, despite my intended use of the PIPE flags. This solution simply looks for the command  
+to create a text file temp.s and reads it as a string. One bug is that I try to delete  
+this file using the command on line 58 of compiler_explorer and see no change in the directory.

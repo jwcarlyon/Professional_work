@@ -1,7 +1,6 @@
 # Importing the modules
 import tkinter as tk
 import subprocess
-from subprocess import PIPE
 
 # Creating the main window
 window = tk.Tk()
@@ -44,19 +43,23 @@ def update_output(event):
     opt_level = opt_var.get()
     compiler = comp_var.get()
 
-    # Running the compiler with the -S flag to generate assembly output
+    # Running the compiler with the -S flag to generate assembly output as 'temp.s'
+    assembly_code = ""
     command = [compiler, opt_level, "-S", "temp.cpp"]
-    process = subprocess.run(command, capture_output=True)
+    process = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    # Getting the assembly output from the process stdout
-    asm_output = process.stdout.decode()
+    # Getting the assembly output from the processed compiler output - no error handling??
+    with open("temp.s", "r") as assembly_file:
+        assembly_code = assembly_file.read()
 
-    # Deleting the temporary file
+
+    # Deleting the temporary files
     subprocess.run(["rm", "temp.cpp"])
+    subprocess.run(["rm", "temp.s"])
 
     # Clearing and inserting the assembly output to the output box
     output_box.delete("1.0", "end")
-    output_box.insert("1.0", asm_output)
+    output_box.insert("1.0", assembly_code)
 
 # Binding the update function to the input box key release event
 input_box.bind("<KeyRelease>", update_output)
