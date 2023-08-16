@@ -31,10 +31,11 @@ public class DriversService
 
     public void refreshDriversRepo()
     {
-        ArrayList<Driver> driverList = null;
+        ArrayList<Driver> driverList;
+        driverList = null;
         try {
             driverList = new ArrayList<>(List.of(ergastClient.getAllDriversByYear("2022")));
-        } catch (IOException exception) {
+        } catch (IOException exception) {                            
             System.out.println("Failed to collect driver list: " + exception);
         }
         for (Driver driver : driverList) {

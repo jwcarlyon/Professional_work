@@ -1,0 +1,9 @@
+.floating-title {
+  position: absolute;
+  font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif;
+  top: 5px;
+  left: 5px;
+  color: white;
+  text-shadow: 1vh 1vh 1vh black;
+  transform: translate(-50%, -50%);
+}

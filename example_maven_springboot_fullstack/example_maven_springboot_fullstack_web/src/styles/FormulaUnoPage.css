@@ -1,0 +1,68 @@
+
+/* A class for the carousel surrounding div */
+.carousel-div {
+  /* font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif; */
+  position: relative;
+}
+
+.carousel-inner {
+  position:relative;
+}
+/* A class for the floating title */
+.f1-header {
+  background-color: #d0d3d4 ;
+  /* font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif; */
+  font-size: calc(10px + 2vmin);
+  max-width: 90vh;
+  text-align: center;
+}
+
+.floating-title {
+  position: absolute;
+  color: white;
+  /* font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image-div {
+  /* position: absolute; */
+  transform: translate(-50%, -50%);
+}
+
+.image-img {
+}
+
+.right-div {
+  float:right;
+  width:25%;
+}
+
+/* A class for the shadow effect of the title */
+.shadow {
+  position: absolute;
+  /* font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif;
+  top: 5px;
+  left: 5px;
+  color: black;
+  opacity: 0.5; */
+}
+
+.slide { width: 100%; height: 100%; background-size: cover; background-position: center; }
+
+.slideshow { width: 100%; height: 100%; position: fixed; top: 0; left: 0; }
+
+.thumb { display: none; }
+
+.title { position: absolute; top: 10px; left: 10px; color: white; font-size: 36px; }
+
+/* A class for the top page surrounding div */
+.top-div {
+  /* font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif;
+  overflow: hidden;
+  position: relative; */
+}
+
+.track { height: 100%; }
