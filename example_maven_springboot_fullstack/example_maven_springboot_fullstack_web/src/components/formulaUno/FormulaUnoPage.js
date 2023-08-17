@@ -104,8 +104,7 @@ export function mapStateToProps(state)
 
 export function mapDispatchToProps(dispatch)
 {
-   return{
-   };
+   return{ };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FormulaUnoPage));

@@ -13,3 +13,5 @@ Endpoints have been added to refresh and list the drivers in the database.
 ### TODO!
 
 Create a working and unique full stack packaged APP - affix a working react-redux front-end
+- added multi-module pom Maven build
+- setting up hello-world react-redux

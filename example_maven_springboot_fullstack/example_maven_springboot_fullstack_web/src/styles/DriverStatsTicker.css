@@ -1,0 +1,38 @@
+.bio-table {
+  height: 100%;
+  width: 50vmin;
+  float: right;
+  border: 5px solid black;
+  border-radius: 5vmin;
+  outline: 2px solid #CCC;
+  margin: 10vh;
+}
+
+.bio-text {
+  font-family: "Avantgarde", TeX Gyre Adventor, URW Gothic L, sans-serif;
+  margin: 5vmin;
+}
+
+.driver-photo {
+  height: 50vmin;
+  width: 50vmin;
+  float: left;
+  border: 5px solid black;
+  border-radius: 5vmin;
+  margin: 10vmin;
+}
+
+.floating-window {
+  position: absolute;
+  border-radius: 5vmin;
+  background-color: white;
+  box-shadow: 10px 10px 5px grey;
+  margin: 10vmin;
+  top:0;
+}
+
+.photo {
+  height: 50vmin;
+  width: 50vmin;
+  object-fit: contain;
+}

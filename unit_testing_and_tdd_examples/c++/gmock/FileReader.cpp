@@ -4,27 +4,23 @@
 #include <iostream>
 
 
-// class AIGEN_FileReader {
-// public:
-//     AIGEN_FileReader(const char* filename) : filename_(filename) {}
-//     bool openFile() {
-//         stream_.open(filename_);
-//         return stream_.is_open();
-//     }
-// private:
-//     const char* filename_;
-//     std::ifstream stream_;
-// };
 class FileReader
 {
 public:
     FileReader(const char* filename) : filename_(filename)
-    {    
+    {
         std::ifstream stream_source;
         std::stringstream file_stream;
-        stream_source.open(filename_);
-        file_stream << stream_source.rdbuf();
-        stream_source.close();
+        stream_source.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+        try {
+            stream_source.open(filename_);
+            file_stream << stream_source.rdbuf();
+            stream_source.close();
+        } catch (std::ifstream::failure exception) {
+            std::cout << "ERROR::READFILE_NOT_FOUND::" << exception.what() << std::endl;
+            stream_source.close();
+            throw exception;
+        }
         file_data = file_stream.str();
         std::cout << "DEBUG::READFILE::" << file_data << std::endl;
     }
@@ -38,6 +34,17 @@ private:
 };
 
 
+// class AIGEN_FileReader {
+// public:
+//     AIGEN_FileReader(const char* filename) : filename_(filename) {}
+//     bool openFile() {
+//         stream_.open(filename_);
+//         return stream_.is_open();
+//     }
+// private:
+//     const char* filename_;
+//     std::ifstream stream_;
+// };
 // int main()
 // {return 0;}
 
