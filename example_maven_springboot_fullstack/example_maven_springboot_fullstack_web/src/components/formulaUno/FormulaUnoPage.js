@@ -29,17 +29,7 @@ export class FormulaUnoPage extends Component
 
         return `${year}`;
     };
-    //
-    // handleNext = () => {
-    //     console.log('handle next called.');
-    //     const index = this.state.index;
-    //     if(index >= 2){
-    //         this.setState({ index: 0 });
-    //     } else {
-    //         this.setState({ index: this.state.index + 1 });
-    //     }
-    // };
-    //
+    
     renderTitle = () => {
         const titleText = 'Formula One Database ' + this.formatDate(this.state.date);
         return titleText;
@@ -69,34 +59,6 @@ export class FormulaUnoPage extends Component
         );
     }
 }
-// <Slider title={this.renderTitle}/>
-
-    // <ReactSlider
-    //   className='slideshow'
-    //   trackClassName='track'
-    //   thumbClassName='thumb'
-    // >
-    //   {images.map((image, i) => (
-    //     <Slide
-    //       key={i}
-    //       image={image}
-    //       title={this.renderTitle}
-    //     />
-    //   ))}
-    // </ReactSlider>
-// <div className='top-div'>
-// <div className='floating-title'>
-//   <h1>{titleText}</h1>
-//   <h1 className='shadow'>{titleText}</h1>
-// </div>
-// <div className='carousel-div'>
-//   <Carousel className='image-div'>
-//     <Carousel.Item>
-//       <img src={images[this.state.index]} onClick={this.handleNext}/>
-//     </Carousel.Item>
-//   </Carousel>
-// </div>
-// </div>
 export function mapStateToProps(state)
 {
     return { };

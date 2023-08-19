@@ -2,10 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Latest Feature: DriverStatsTicker
-This is a basic setup for a React-Redux front-end. This should load the homepage
-with a basic photo background and title.  
-DriverStatsTicker displays drivers names and basic bio, currently has a demo photo and bio.
+## Latest Feature: Jest Testing
+Unit testing for all connected components was added before connection to the back-end  
 
 ## Next up: calling the back-end
  for json and adding some more backgrounds with some fading transitions.

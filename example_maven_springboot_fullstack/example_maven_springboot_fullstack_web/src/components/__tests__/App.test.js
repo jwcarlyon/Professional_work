@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import App from '../App';
 import rootReducer from '../../service/redux/rootReducer';
 
-jest.mock('../debug/ReactPage', () => {
+jest.mock('../formulaUno/FormulaUnoPage', () => {
     return () => {
         return <div>Welcome Page Loaded</div>;
     };
@@ -29,7 +29,7 @@ describe('App', () => {
     });
 
   it('renders learn react link', () => {
-      const linkElement = screen.getByText('Loaded');
+      const linkElement = screen.getByText('Welcome Page Loaded');
       expect(linkElement).toBeInTheDocument();
   });
 

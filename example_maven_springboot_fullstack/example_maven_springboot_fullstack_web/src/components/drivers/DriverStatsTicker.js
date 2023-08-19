@@ -18,8 +18,6 @@ export class DriverStatsTicker extends Component
 
     render()
     {
-        const driverBio = 'This is a driver biographical page with lots of important information';
-
         return (
           <div className='floating-window'>
             <div className='driver-photo'>
