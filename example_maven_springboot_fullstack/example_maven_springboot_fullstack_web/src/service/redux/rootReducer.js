@@ -1,9 +1,7 @@
 import {combineReducers} from 'redux';
-import {formulaUnoReducer} from '../formulaUno/formulaUnoReducer';
-import {uiReducer} from '../ui/uiReducer';
+import {driversReducer} from '../drivers/driversReducer';
+import {lastAction} from './lastAction';
 
-export default combineReducers
-({
-    f1Carosel: () => formulaUnoReducer,
-    ui: () => uiReducer
+export default combineReducers({
+    drivers: driversReducer
 });

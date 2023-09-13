@@ -14,18 +14,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
-class NormalWebAppConfigTest
+class RestTemplateConfigTest
 {
-    private NormalWebAppConfig normalWebAppConfig;
+    private RestTemplateConfig restTemplateConfig;
 
     @BeforeEach
-    void setUp() { normalWebAppConfig = new NormalWebAppConfig(); }
+    void setUp() { restTemplateConfig = new RestTemplateConfig(); }
     @Nested
     class restTemplate {
         @Test
         @DisplayName(value = "When a restTemplate is requested, then the RestTemplate type is returned")
         void returnsRestTemplate() {
-            RestTemplate result = normalWebAppConfig.restTemplate(new RestTemplateBuilder());
+            RestTemplate result = restTemplateConfig.restTemplate(new RestTemplateBuilder());
 
             assertEquals(RestTemplate.class, result.getClass());
         }

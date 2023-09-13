@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
-public class NormalWebAppConfig implements WebMvcConfigurer
+public class RestTemplateConfig implements WebMvcConfigurer
 {
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {

@@ -2,11 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Latest Feature: Jest Testing
-Unit testing for all connected components was added before connection to the back-end  
+## Latest Feature: Redux calling the back-end
+ Rest API call to the backend for driver json  
 
-## Next up: calling the back-end
- for json and adding some more backgrounds with some fading transitions.
+## Next: Redux calling the back-end
+ Front end DriverSelector and adding some more backgrounds with some fading transitions.  
 
 ## Running locally
 Viewing the 'web' folder in a terminal, running `$npm build && npm start`  

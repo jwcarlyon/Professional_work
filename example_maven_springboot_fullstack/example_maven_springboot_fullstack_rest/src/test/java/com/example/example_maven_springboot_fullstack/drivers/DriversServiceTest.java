@@ -1,6 +1,7 @@
 package com.example.example_maven_springboot_fullstack.drivers;
 
 import com.example.example_maven_springboot_fullstack.ergast.ErgastClient;
+import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(SpringExtension.class)
 @ExtendWith(MockitoExtension.class)
 class DriversServiceTest {
-
     @Mock
     private DriverRepo mockDriverRepo;
     @Mock
@@ -61,6 +61,30 @@ class DriversServiceTest {
             verify(mockDriverRepo).save(driver1);
             verify(mockDriverRepo).save(driver2);
             verifyNoMoreInteractions(mockDriverRepo);
+        }
+    }
+
+    @Nested
+    class getDriver {
+        @Test
+        @DisplayName("When driver is found in repo, then the driver is returned")
+        void returnDriver() {
+            Gson gson = new Gson();
+            Driver driver1 = new Driver();
+            driver1.setDriverId("test1");
+            String expectedResult = gson.toJson(driver1);
+            when(mockDriverRepo.findByGivenName("lewis")).thenReturn(driver1);
+
+            String result = driversService.getDriver("lewis");
+
+            assertEquals(expectedResult, result);
+        }
+        @Test
+        @DisplayName("When driver is not found in repo, then none found string returned")
+        void noDriver() {
+            String result = driversService.getDriver("lewis");
+
+            assertEquals("None Found for: lewis", result);
         }
     }
 }

@@ -38,16 +38,19 @@ class DriversControllerTest {
     void setUp() { mockMvc = MockMvcBuilders.standaloneSetup(driversController).build(); }
 
     @Nested
-    class driversController {
+    class driversWelcome {
         @Test
         @DisplayName("When a welcome request is made, then a hello world response message is returned with a 200/OK")
         void helloWorld() throws Exception {
             mockMvc.perform(get("/drivers/welcome"))
                     .andExpect(status().isOk())
-                            .andExpect(content().contentType(MediaType.TEXT_PLAIN + ";charset=ISO-8859-1"))
-                                    .andExpect(MockMvcResultMatchers.content().string("<h3>Hello F1 World!</h3>"));
+                    .andExpect(content().contentType(MediaType.TEXT_PLAIN + ";charset=ISO-8859-1"))
+                    .andExpect(MockMvcResultMatchers.content().string("<h3>Hello F1 World!</h3>"));
         }
+    }
 
+    @Nested
+    class driversRefresh {
         @Test
         @DisplayName("When a refresh request is made, " +
                 "then the drivers repo is refreshed and a success response message is returned with a 200/OK")
@@ -59,7 +62,25 @@ class DriversControllerTest {
 
             verify(mockDriversService).refreshDriversRepo();
         }
+    }
 
+    @Nested
+    class driversName {
+        @Test
+        @DisplayName("When an driver request is made, then an ArrayList of stats is returned with a 200/OK")
+        void getDriversList() throws Exception {
+            Driver driver1 = new Driver();
+            driver1.setDriverId("test1");
+            when(mockDriversService.getDriver("lewis")).thenReturn(driver1.toString());
+
+            mockMvc.perform(get("/drivers/lewis"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().contentType(MediaType.TEXT_PLAIN + ";charset=ISO-8859-1"))
+                    .andExpect(MockMvcResultMatchers.content().string(driver1.toString()));
+        }
+    }
+    @Nested
+    class driversAllDrivers {
         @Test
         @DisplayName("When an all-drivers request is made, then an ArrayList of Drivers is returned with a 200/OK")
         void getDriversList() throws Exception {

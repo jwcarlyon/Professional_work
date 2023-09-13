@@ -1,5 +1,6 @@
 package com.example.example_maven_springboot_fullstack.drivers;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,10 +24,10 @@ public class Driver
         @GeneratedValue(strategy=GenerationType.IDENTITY)
         private Integer mysql_id;
         @Column
-        @JsonProperty("driverId")
+        @JsonAlias({ "driverId", "driverId" })
         private String driverId;
         @Column
-        @JsonProperty("permanentNumber")
+        @JsonAlias({ "permanent_number", "permanentNumber" })
         private Integer permanentNumber;
         @Column
         @JsonProperty("code")
@@ -35,13 +36,13 @@ public class Driver
         @JsonProperty("url")
         private String url;
         @Column
-        @JsonProperty("givenName")
+        @JsonAlias({ "given_name", "givenName" })
         private String givenName;
         @Column
-        @JsonProperty("familyName")
+        @JsonAlias({ "family_name", "familyName" })
         private String familyName;
         @Column
-        @JsonProperty("dateOfBirth")
+        @JsonAlias({ "date_of_birth", "dateOfBirth" })
         private String dateOfBirth;// "1981-07-29"
         @Column
         @JsonProperty("nationality")

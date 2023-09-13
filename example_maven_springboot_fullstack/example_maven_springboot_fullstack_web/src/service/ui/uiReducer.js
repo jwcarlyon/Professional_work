@@ -1,7 +1,6 @@
-import * as uiActionTypes from './uiActionTypes';
+// import * as uiActionTypes from './uiActionTypes';
 
-export function uiReducer(state, action)
-{
+export function uiReducer(state, action) {
     switch(action.type)
     {
       case uiActionTypes.UI__START_ROTATION:

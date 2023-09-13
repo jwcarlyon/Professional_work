@@ -1,0 +1,30 @@
+application:
+  local:
+    server:
+      port: 8080
+
+spring:
+  application:
+    name: example_maven_springboot_fullstack
+  datasource:
+    url: jdbc:h2:mem:f1
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+#    url: jdbc:mysql://localhost:3306/f1
+#    username: root
+#    password: password
+  http:
+    converters:
+      preferred-json-mapper: gson
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  main:
+    allow-bean-definition-overriding: true
+  sql:
+    init:
+      mode: always # default for H2 instances
+example-maven-springboot-fullstack:
+  rapid-api:
+    key: 652de7616fmshb8c83991a39ea17p10cf3ajsn4abc51b02d5d

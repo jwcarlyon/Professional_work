@@ -50,10 +50,10 @@ export const Slider = (props) => {
                 const currentTimeInMs = Date.now();
                 setTime(currentTimeInMs);
                 const timeDerivative = .5 + (Math.abs(Math.cos(currentTimeInMs / 100000)) / 2);
-                const x = viewPortWidth - (timeDerivative * viewPortWidth);
-                const y = viewPortHeight - (timeDerivative * viewPortHeight);
+                const xCoordinate = viewPortWidth - (timeDerivative * viewPortWidth);
+                const yCoordinate = viewPortHeight - (timeDerivative * viewPortHeight);
 
-                setPosition({ x, y });
+                setPosition({ xCoordinate, yCoordinate });
             };
             updatePosition();
             const intervalId = setInterval(updatePosition, 50);
@@ -101,7 +101,7 @@ export const Slider = (props) => {
         setTimeout(currentTimeInMs + twentySecondsInMs);
         nextSlide();
     }
-    console.log('Render Slider %s', Math.abs(Math.cos(currentTimeInMs / 100000)));
+    // console.log('Render Slider %s', Math.abs(Math.cos(currentTimeInMs / 100000)));
 
     return (
       <div style={sliderStyle} ref={ref}>
@@ -110,6 +110,7 @@ export const Slider = (props) => {
       </div>
     );
 };
+
 export function mapStateToProps(state)
 {
     return { };

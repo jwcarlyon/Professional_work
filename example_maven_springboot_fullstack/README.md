@@ -5,13 +5,12 @@ Using bash enter the one of following commands
 - `mvn package` This will build the project if you have not already.  
 - `mvn spring-boot:run` This will deploy the project
 
-### Back-End  
-The Java back end has a client to call and API which lists drivers from the f1.  
-A MySQL Database is integrated, which keeps an archive of the drivers and some information about them.  
-Endpoints have been added to refresh and list the drivers in the database.  
+### Driver API
+This is a springBoot project that sets up a database of formula 1 stats. When deployed,  
+the application will create a relational database of F1 Drivers with a controller for  
+recalling the saved Driver as JSON. Read the WEB folder to set up the front end and see  
+the DriverStatsPage.
 
 ### TODO!
 
-Create a working and unique full stack packaged APP - affix a working react-redux front-end
-- added multi-module pom Maven build
-- setting up hello-world react-redux
+Add times/eta for each race and driver... seems like a Race DB may be necessary? 
