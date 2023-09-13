@@ -9,11 +9,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:f1
     username: sa
-    password: password
+    password:
     driverClassName: org.h2.Driver
-#    url: jdbc:mysql://localhost:3306/f1
-#    username: root
-#    password: password
   http:
     converters:
       preferred-json-mapper: gson
@@ -27,4 +24,4 @@ spring:
       mode: always # default for H2 instances
 example-maven-springboot-fullstack:
   rapid-api:
-    key: 652de7616fmshb8c83991a39ea17p10cf3ajsn4abc51b02d5d
+    key: 

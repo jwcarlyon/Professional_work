@@ -3,8 +3,6 @@ package com.example.example_maven_springboot_fullstack.drivers;
 import com.example.example_maven_springboot_fullstack.ergast.ErgastClient;
 import com.example.example_maven_springboot_fullstack.rapid.RapidClient;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
